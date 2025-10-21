@@ -1,19 +1,28 @@
-<h3>Lista de Tarefas cadastradas</h3>
+<h3>Lista de Tarefas</h3>
+
+<div style="display:flex; gap:12px; align-items:center; margin-bottom:8px;">
+  <span>Total: {{ total }}</span>
+  <span>Concluídas: {{ concluidas }}</span>
+  <span>Pendentes: {{ pendentes }}</span>
+  <a routerLink="/cadastrar" style="margin: left 8px;;">Cadastrar nova</a>
+</div>
 
 @if (tarefas.length === 0) {
-  <p class="text-muted">Nenhuma tarefa cadastrada.</p>
-} @else {
-  <ul class="list-group" style="max-width:620px">
-    @for (l of tarefas; track l.id) {
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <div>
-          <strong>{{ l.tarefa }}</strong>
-          <small class="text-muted d-block">
-            {{ l.responsavel }} — {{ l.data }} @if (l.materia) { • {{ l.materia }} }
-          </small>
-        </div>
-        <button class="btn btn-outline-danger btn-sm" (click)="remover(l.id)">Remover</button>
-      </li>
-    }
-  </ul>
+  <p>Nenhuma tarefa cadastrada</p>
 }
+
+@for (t of tarefas; track t.id) {
+  <div style="display:flex; gap:8px; align-items:center; margin-bottom:6px;">
+    <input type="checkbox" [checked]="t.concluida" (change)="concluir(t.id)">
+    <span>{{ t.tarefa }} — {{ t.responsavel }} — {{ t.data }}</span>
+    @if (t.materia) { <small>({{ t.materia }})</small> }
+
+    <button type="button" (click)="remover(t.id)" style="margin-left:8px;">
+     Remover
+    </button>
+
+  </div>
+}
+
+
+

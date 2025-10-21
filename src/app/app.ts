@@ -1,13 +1,12 @@
-import { Component, signal } from '@angular/core';
-import { CadastrarTarefa } from './cadastrar-tarefa/cadastrar-tarefa';
-import { ListaTarefas } from './lista-tarefas/lista-tarefas';
+import { Component } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [CadastrarTarefa, ListaTarefas],
+  standalone: true,
+  imports: [RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
-export class App {
-  protected readonly title = signal('TarefaAC2');
-}
+export class AppComponent {}
+
