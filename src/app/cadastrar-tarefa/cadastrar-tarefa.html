@@ -1,0 +1,9 @@
+<h3>Cadastrar Tarefas</h3>
+
+<form (ngSubmit)="salvar()" class="d-grid gap-2" style="max-width:420px">
+  <input class="form-control" [(ngModel)]="tarefa" name="tarefa" placeholder="Tarefa" required>
+  <input class="form-control" [(ngModel)]="responsavel"  name="responsavel"  placeholder="Responsável"  required>
+  <input class="form-control" [(ngModel)]="data"    name="data"  placeholder="Data" required>
+  <input class="form-control" [(ngModel)]="materia" name="materia" placeholder="Matéria (opcional)">
+  <button class="btn btn-success" type="submit">Salvar</button>
+</form>

@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CadastrarTarefa } from './cadastrar-tarefa/cadastrar-tarefa';
+import { ListaTarefas } from './lista-tarefas/lista-tarefas';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [CadastrarTarefa, ListaTarefas],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

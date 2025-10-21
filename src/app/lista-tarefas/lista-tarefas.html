@@ -1,0 +1,19 @@
+<h3>Lista de Tarefas cadastradas</h3>
+
+@if (tarefas.length === 0) {
+  <p class="text-muted">Nenhuma tarefa cadastrada.</p>
+} @else {
+  <ul class="list-group" style="max-width:620px">
+    @for (l of tarefas; track l.id) {
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>{{ l.tarefa }}</strong>
+          <small class="text-muted d-block">
+            {{ l.responsavel }} — {{ l.data }} @if (l.materia) { • {{ l.materia }} }
+          </small>
+        </div>
+        <button class="btn btn-outline-danger btn-sm" (click)="remover(l.id)">Remover</button>
+      </li>
+    }
+  </ul>
+}
